@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 import myContext from './Context'
 import { useState } from 'react';
 
@@ -15,8 +15,17 @@ const Provider = ({children}) => {
         setTaskinput
         
     }
+
+      /*  const init = () => {
+     const valor= localStorage.getItem('estado')
+      return{ estado:!!valor }
+     }
+     const [myAction, dispatch] = useReducer(myReducer,{}, init);
+ 
+*/
+
   return (
-    
+     
       <myContext.Provider  value= {value}>
         {children}
       </myContext.Provider>

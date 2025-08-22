@@ -1,4 +1,5 @@
 // Components/AddTasks.js
+import '../App.css'
 import { useContext, useState } from 'react';
 import myContext from '../Context/Context';
 
@@ -27,23 +28,27 @@ const AddTasks = () => {
 
   return (
     <>
-      <div className="addTask">
+      <div className="addTask_items">
+        <div className='box_add'>
         <h2>Add Task</h2>
-        <select value={option} onChange={handleChange}>
+        <div className='selectDiv'>
+        <select value={option} onChange={handleChange} className='addTask_select'>
           <option value="">Opciones</option>
-          <option value="importante">Importante</option>
-          <option value="necesarias">Necesarias</option>
-          <option value="normal">Normal</option>
+          <option value="Importante">Importante</option>
+          <option value="Necesarias">Necesarias</option>
+          <option value="Normal">Normal</option>
         </select>
-        <div>Has seleccionado: {option}</div>
+        </div>
+        {/*<div>Has seleccionado: {option}</div>*/}
 
         <div>
           <input type="text" value={taskInput} onChange={handleInputChange} />
           <button onClick={handleAddTask}>Add</button>
         </div>
       </div>
+      </div>
 
-      <div>
+     {/*} <div>
         <h3>Lista de tareas:</h3>
         <ul>
           {tasks.map((t, i) => (
@@ -52,7 +57,7 @@ const AddTasks = () => {
             </li>
           ))}
         </ul>
-      </div>
+      </div>*/}
     </>
   );
 };

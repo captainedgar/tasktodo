@@ -1,8 +1,10 @@
 
-import AllTasks from './AllTasks'
+
 import './App.css'
 import AddTasks from './components/AddTasks'
 import Provider from './Context/Provider'
+import AllTasks from './components/AllTasks'
+import Prueba from './components/Prueba'
 
 function App() {
  
@@ -17,7 +19,11 @@ function App() {
         <AddTasks/>
     </div>
     </Provider>
+   
+
+    
     </>
+    
   )
 }
 
