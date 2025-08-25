@@ -11,7 +11,7 @@ const AllTasks = () => {
 
   return (
     <div className="alltasks">
-      <div className="container">
+      <div className="container" >
         <h2 className="text-2xl font-bold text-gray-800 mb-4">All Tasks</h2>
 
         {/* Botones de filtro */}
@@ -33,33 +33,47 @@ const AllTasks = () => {
         </div>
 
         {/* Input search */}
-        <div className="mb-6">
+        <div className="searchTask" >
           <input
             type="search"
             placeholder="Buscar tarea..."
-            className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            className=""
           />
         </div>
-
-        {/* Lista de tareas */}
-        <ul className="space-y-3">
+        <div>
+            <table className="table-auto border-collapse border border-gray-400 w-full">
+       
+        </table>
+        </div>
+       <table border="1" cellPadding="10" cellSpacing="0" style={{ width: "100%", textAlign: "center" }}>
+        <thead>
+          <tr>
+            <th>Tarea</th>
+            <th>Nivel de Prioridad</th>
+            <th>Hecha</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
           {tasks.map((tak, i) => (
-            <li key={i} className="flex items-center justify-between bg-gray-50 border border-gray-200 rounded-lg p-4 shadow-sm">
-              <div>
-                <h4 className="font-semibold text-gray-700">{tak.text} {tak.category}</h4>
-                <div
-                  onClick={cambio}
-                  className="text-sm text-blue-600 cursor-pointer hover:underline"
-                >
-                  Si
-                </div>
-              </div>
-              <button className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600">
-                X
-              </button>
-            </li>
+            <tr key={i}>
+              <td>{tak.text}</td>
+              <td>{tak.category}</td>
+              <td>
+                <input
+                  type="checkbox"
+                  checked={tak.done}
+                  onChange={() => toggleTask(i)}
+                  className='check'
+                />
+              </td>
+              <td>
+                <button onClick={() => deleteTask(i)}>X</button>
+              </td>
+            </tr>
           ))}
-        </ul>
+        </tbody>
+      </table>
       </div>
     </div>
   )
