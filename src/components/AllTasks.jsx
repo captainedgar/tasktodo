@@ -1,13 +1,20 @@
 import myContext from '../Context/Context'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import '../App.css'
 
 const AllTasks = () => {
   const { tasks, setTasks } = useContext(myContext)
+  const [search, setSearch]= useState('');
+  const [category, setCategory]= useState('Todo');
 
-  const cambio = (e) => {
-    e.target.innerHTML = 'no'
-  }
+const toggleTask=()=>{
+
+}
+
+const deleteTask=()=>{
+  
+}
+
 
   return (
     <div className="alltasks">
@@ -23,7 +30,7 @@ const AllTasks = () => {
 
         {/* Select */}
         <div className="mb-4">
-          <select className="select_items">
+          <select className="select_items" onChange={(e)=>setCategory(e.target.value)} value={category}>
             <option value="Opciones">Opciones</option>
             <option value="Importante">Importante</option>
             <option value="Necesaria">Necesaria</option>
@@ -33,11 +40,16 @@ const AllTasks = () => {
         </div>
 
         {/* Input search */}
+      
+
+
         <div className="searchTask" >
           <input
             type="search"
             placeholder="Buscar tarea..."
             className=""
+            value={search}
+            onChange={(e)=>setSearch(e.target.value)}
           />
         </div>
         <div>
@@ -55,23 +67,35 @@ const AllTasks = () => {
           </tr>
         </thead>
         <tbody>
-          {tasks.map((tak, i) => (
-            <tr key={i}>
-              <td>{tak.text}</td>
-              <td>{tak.category}</td>
-              <td>
-                <input
+        { tasks.filter((tak)=> 
+        tak.text.toLowerCase().includes(search.toLowerCase() ) && 
+        (category==='Todo' || tak.category === setCategory))
+        
+      
+      .map((tak, i)=>(
+        <tr key={i}>
+             
+                <td>{tak.text}</td>
+                <td>{tak.category}</td>
+                <td >
+                 <input
                   type="checkbox"
                   checked={tak.done}
                   onChange={() => toggleTask(i)}
                   className='check'
                 />
-              </td>
+                </td>
               <td>
-                <button onClick={() => deleteTask(i)}>X</button>
+              <button className="buttonTask" onClick={() => deleteTask(i)}>
+                X
+              </button>
               </td>
+             
             </tr>
-          ))}
+      ))
+      
+      }
+     
         </tbody>
       </table>
       </div>
