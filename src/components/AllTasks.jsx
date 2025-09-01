@@ -49,11 +49,11 @@ const AllTasks = () => {
             onChange={(e) => setCategory(e.target.value)}
             value={category}
           >
-            <option value="Opciones">Opciones</option>
+            <option value="Todo">Todo</option>
             <option value="Importante">Importante</option>
             <option value="Necesarias">Necesaria</option>
             <option value="Normal">Normal</option>
-            <option value="Todo">Todo</option>
+            
           </select>
         </div>
 
@@ -67,8 +67,8 @@ const AllTasks = () => {
           />
         </div>
 
-        {/* 🔹 Tabla de tareas */}
-        <table border="1" cellPadding="10" cellSpacing="0" style={{ width: "100%", textAlign: "center" }}>
+        {/*  Tabla de tareas */}
+        <table className='table-wrapper ' border="0" cellPadding="5" cellSpacing="0" style={{ width:'100%', textAlign: "center"}}>
           <thead>
             <tr>
               <th>Tarea</th>

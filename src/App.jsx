@@ -12,10 +12,10 @@ function App() {
   return (
     <>
     <Provider>
-    <div>
+   <div className='tasks-wrapper'>
         <AllTasks/>
-    </div>
-    <div>
+    
+    
         <AddTasks/>
     </div>
     </Provider>

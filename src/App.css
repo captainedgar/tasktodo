@@ -1,4 +1,3 @@
-
 button{
   cursor:pointer;
 }
@@ -153,7 +152,7 @@ margin-top: 10px;
 .box_add{
   margin: 0 auto;
   height: 170px;
-  padding-top: 20px;
+  padding: 20px;
   
 
 }
@@ -226,4 +225,38 @@ td{
 .main-bar{
   margin-bottom: 10px;
   padding:5px;
+}
+
+.tasks-wrapper {
+  display: flex;
+  justify-content: center; 
+  align-items: flex-start;  
+  gap: 20px;                
+  margin-top: 20px;
+}
+
+
+table{
+  background-color: #394151;
+}
+
+
+
+
+/*--------------MOBILE------------*/
+
+@media (max-width: 768px) {
+  .tasks-wrapper {
+    flex-direction: column;  /* Apila en móviles */
+    align-items: center;     /* Centra cada bloque */
+  }
+
+  .alltasks {
+    width: 90%;   /* Ocupa casi todo el ancho disponible */
+    height: auto; /* Deja que crezca según contenido */
+  }
+
+  .box_add {
+    width: 90%;
+  }
 }

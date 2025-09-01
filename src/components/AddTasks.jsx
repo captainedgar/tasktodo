@@ -3,6 +3,7 @@ import '../App.css'
 import { useContext, useState } from 'react';
 import myContext from '../Context/Context';
 
+
 const AddTasks = () => {
   const { option, setOption, tasks, setTasks, taskInput, setTaskinput } = useContext(myContext);
  
@@ -21,10 +22,22 @@ const AddTasks = () => {
       return;
     }
 
-    const newTask = { text: taskInput, category: option };
-    setTasks([...tasks, newTask]);
+    const newTask = { text: taskInput.trim(), category: option };
+    addTask([ newTask]);
     setTaskinput('');
   };
+  const handleEnter = (e)=>{
+if (e.key === 'Enter'){
+  e.preventDefault();
+  handleAddTask();
+}
+  }
+
+const addTask = (newTaks) => {
+  tasks.some((t) => t.text.toLowerCase() === taskInput.toLowerCase() )
+  ? alert('Ya existe una tarea con ese nombre')
+  : setTasks([...tasks, newTaks])
+}
 
   return (
     <>
@@ -40,10 +53,15 @@ const AddTasks = () => {
         </select>
         </div>
         {/*<div>Has seleccionado: {option}</div>*/}
-
+      
         <div>
-          <input type="text" value={taskInput} onChange={handleInputChange} />
+           <input type="text" value={taskInput} onKeyDown={handleEnter} onChange={handleInputChange}
+         
+          
+           
+            />
           <button onClick={handleAddTask}>Add</button>
+         
         </div>
       </div>
       </div>
