@@ -13,21 +13,19 @@ const AllTasks = () => {
 
   // 🔹 Marca/desmarca una tarea como terminada (done true/false)
   const toggleTask = (i) => {
-    const newTaks = [...tasks];
-    newTaks[i].done = !newTaks[i].done; // cambia el valor de "done"
-    setTasks(newTaks);                  // actualiza el estado global de tasks
+    const newTasks = [...tasks];
+    newTasks[i].done = !newTasks[i].done; // cambia el valor de "done"
+    setTasks(newTasks);                  // actualiza el estado global de tasks
   }
 
   // 🔹 Elimina una tarea filtrando por índice
   const deleteTask = (i) => {
-    const newTaks = tasks.filter((_, index) => index !== i);
-    setTasks(newTaks);
+    const newTasks = tasks.filter((_, index) => index !== i);
+    setTasks(newTasks);
   }
 
-  // ⚠️ Esta función está incompleta, no se usa aún
-  const finish = (i) => {
-    const newfinish = tasks.filter(i.includes())
-  }
+  
+
 
 
   return (
@@ -51,7 +49,7 @@ const AllTasks = () => {
           >
             <option value="Todo">Todo</option>
             <option value="Importante">Importante</option>
-            <option value="Necesarias">Necesaria</option>
+            <option value="Necesaria">Necesaria</option>
             <option value="Normal">Normal</option>
             
           </select>
@@ -86,7 +84,7 @@ const AllTasks = () => {
               )
               // 🔹 Segundo filtro: según el estado (Finish, Continues o All)
               .filter((tak) => {
-                if (filter === 'Finished') return tak.done;    // muestra solo terminadas
+                if (filter === 'Finish') return tak.done;    // muestra solo terminadas
                 if (filter === 'Continues') return !tak.done;  // muestra solo en progreso
                 return true;                                   // si es "All", muestra todas
               })

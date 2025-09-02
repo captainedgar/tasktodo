@@ -22,8 +22,8 @@ const AddTasks = () => {
       return;
     }
 
-    const newTask = { text: taskInput.trim(), category: option };
-    addTask([ newTask]);
+    const newTask = { text: taskInput.trim(), category: option, done:false };
+    addTask(newTask);
     setTaskinput('');
   };
   const handleEnter = (e)=>{
@@ -34,7 +34,7 @@ if (e.key === 'Enter'){
   }
 
 const addTask = (newTaks) => {
-  tasks.some((t) => t.text.toLowerCase() === taskInput.toLowerCase() )
+  tasks.some((t) => t.text.toLowerCase() === newTaks.text.toLowerCase() )
   ? alert('Ya existe una tarea con ese nombre')
   : setTasks([...tasks, newTaks])
 }
